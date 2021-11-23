@@ -33,7 +33,7 @@ while menu != 0:
   menu = int(input("Informe um opção: "))
   #Validação de escolha do menu
   if (menu <0) or (menu >3):
-    while (menu <1) or (menu >3):
+    while (menu <0) or (menu >3):
       os.system("clear") or None
       print ("Opção inválida, você digitou: " + str(menu) + " favor informar uma opção válida\n")
       print("MENU DE PERGUNTAS E RESPOSTAS\n")
