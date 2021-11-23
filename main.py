@@ -32,7 +32,7 @@ while menu != 0:
   print("3 - Ver Maior Pontuação em uma rodada até o momento .\n")
   menu = int(input("Informe um opção: "))
   #Validação de escolha do menu
-  if (menu <1) or (menu >3):
+  if (menu <0) or (menu >3):
     while (menu <1) or (menu >3):
       os.system("clear") or None
       print ("Opção inválida, você digitou: " + str(menu) + " favor informar uma opção válida\n")
@@ -45,7 +45,12 @@ while menu != 0:
       menu = int(input("Informe um opção: "))
   os.system("clear") or None #esse comando limpa a tela do console
 
-  if menu == 1: #GERAÇÃO DE RODADA DE PERGUNTAS
+  if menu == 0: #Geração de pontuação total
+    print ("Saindo...")
+    time.sleep(2) #função de espera
+    os.system("clear") or None #esse comando limpa a tela do console    
+
+  elif menu == 1: #GERAÇÃO DE RODADA DE PERGUNTAS
     perguntaLista = []
     for i in range (5):
       pergunta = (random.choice(quests))
