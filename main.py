@@ -22,6 +22,7 @@ pontosTotais = 0
 maiorpontorodada = 0
 listapontorodada = []
 qntrespostacerta = 0
+
 while menu != 0:
   print("MENU DE PERGUNTAS E RESPOSTAS\n")
   print("Selecione a opção desejada:\n")
@@ -29,8 +30,8 @@ while menu != 0:
   print("1 - Gerar Rodada de Perguntas.\n")
   print("2 - Ver Pontuação Total.\n")
   print("3 - Ver Maior Pontuação em uma rodada até o momento .\n")
-  menu = int(input('Informe um opção: '))
-
+  menu = int(input("Informe um opção: "))
+  os.system("clear") or None #esse comando limpa a tela do console
 
   if menu == 1: #GERAÇÃO DE RODADA DE PERGUNTAS
     perguntaLista = []
@@ -39,48 +40,51 @@ while menu != 0:
       perguntaLista.append(pergunta)
     pontos = 0
     for x in range (5):
-      print("\nQuestão: ",perguntaLista[x][0])#pergunta
-      print("\nAlterantiva 1: ",perguntaLista[x][1])#resposta 1
-      print("\nAlterantiva 2: ",perguntaLista[x][2])#resposta 2
-      print("\nAlterantiva 3 ",perguntaLista[x][3])#resposta 3
+      print("\nQuestão:",perguntaLista[x][0])#pergunta
+      print("\nAlterantiva 1:",perguntaLista[x][1])#resposta 1
+      print("\nAlterantiva 2:",perguntaLista[x][2])#resposta 2
+      print("\nAlterantiva 3:",perguntaLista[x][3])#resposta 3
       rcerta = int(perguntaLista[x][4])#resposta correta
-      print (rcerta)
-      rusuario = int(input('\n' + 'Qual será a resposta correta? '))
+      #print (rcerta)#mostra a resposta correta no jogo
+      rusuario = int(input("\nQual será a resposta correta? "))
       print(type(rusuario))
       if (rusuario >= 1 and rusuario <= 3):
         if (rusuario == rcerta):
           pontos += 20
           pontosTotais += 20
           qntrespostacerta += 1
-          os.system('clear') or None
-          print ('\n' + 'Parabéns '  +', você acertou e está com  pontos')
+          os.system("clear") or None
+          print ("\nParabéns, você acertou e está com", pontos,"pontos")
           time.sleep(1) #função de espera
         else:
-          os.system('clear') or None
-          print ('\n' + 'Resporta incorreta, ' + '\nA resposta correta é: ', rcerta)
+          os.system("clear") or None
+          print ("\nResporta incorreta!\nA resposta correta é:", rcerta)
           time.sleep(1) #função de espera
     # usuário digitou opção inválida - Vai inforamr o erro, e solicitar a pergunta novamente
       else:
         while (rusuario <1) or (rusuario >3):
-          os.system('clear') or None
-          print ('Informação inválida, Você digitou: ' + str(rusuario) + ' favor informar uma opção válida') 
-          print("\nQuestão: ",perguntaLista[x][0])#pergunta
-          print("\nAlterantiva 1: ",perguntaLista[x][1])#resposta 1
-          print("\nAlterantiva 2: ",perguntaLista[x][2])#resposta 2
-          print("\nAlterantiva 3 ",perguntaLista[x][3])#resposta 3
-          print ('\n')
-          print ('Para opção 1 digite o numeral 1, para opção 2 digite o numeral 2 e para opção 3 digite o numeral 3 ')
-          rusuario = int(input('Informe a alternativa correta? '))
+          os.system("clear") or None
+          print ("Informação inválida, você digitou: " + str(rusuario) + " favor informar uma opção válida") 
+          print("\nQuestão:",perguntaLista[x][0])#pergunta
+          print("\nAlterantiva 1:",perguntaLista[x][1])#resposta 1
+          print("\nAlterantiva 2:",perguntaLista[x][2])#resposta 2
+          print("\nAlterantiva 3:",perguntaLista[x][3])#resposta 3
+          print ("\nPara opção 1 digite o numeral 1, para opção 2 digite o numeral 2 e para opção 3 digite o numeral 3")
+          rusuario = int(input("Informe a alternativa correta? "))
       time.sleep(1) #função de espera
-      os.system('clear') or None #esse comando limpa a tela do console
-    print ('Resultado final:')
+      os.system("clear") or None #esse comando limpa a tela do console
+    print ("Resultado final:")
     listapontorodada.append(pontos)
-    print ('Jogador, você fez', + pontos, 'pontos! O total de acertos é =',qntrespostacerta)  
+    print ("Jogador, você fez",pontos, "pontos! O total de acertos é =",qntrespostacerta)  
     if (pontos > maiorpontorodada):
       maiorpontorodada = pontos
   
   elif menu == 2: #Geração de pontuação total
-    print ("Sua pontuação Total foi: ", pontosTotais,"\n")
+    print ("Sua pontuação total foi:", pontosTotais,"\n")
+    time.sleep(2) #função de espera
+    os.system("clear") or None #esse comando limpa a tela do console
     
   elif menu == 3: #Geração de maior pontuação
-   print ("Sua maior pontuação em uma rodada :" , maiorpontorodada,"\n")
+    print ("Sua maior pontuação em uma rodada:" , maiorpontorodada,"\n")
+    time.sleep(2) #função de espera
+    os.system("clear") or None #esse comando limpa a tela do console
