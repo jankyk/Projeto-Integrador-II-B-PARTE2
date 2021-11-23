@@ -21,27 +21,28 @@ menu = 4
 pontosTotais = 0
 maiorpontorodada = 0
 listapontorodada = []
-qntrespostacerta = 0
 
 while menu != 0:
   print("MENU DE PERGUNTAS E RESPOSTAS\n")
   print("Selecione a opção desejada:\n")
   print("0 - Sair do Jogo.\n")
   print("1 - Gerar Rodada de Perguntas.\n")
-  print("2 - Ver Pontuação Total.\n")
-  print("3 - Ver Maior Pontuação em uma rodada até o momento .\n")
+  print("2 - Ver Maior Pontuação Atingida nas Rodadas.\n")
+  print("3 - Ver Lista de Pontuação de cada Rodada.\n")
+  print("4 - Ver Pontuação Total de todas as Rodadas.\n")
   menu = int(input("Informe um opção: "))
   #Validação de escolha do menu
-  if (menu <0) or (menu >3):
-    while (menu <0) or (menu >3):
+  if (menu <0) or (menu >4):
+    while (menu <0) or (menu >4):
       os.system("clear") or None
       print ("Opção inválida, você digitou: " + str(menu) + " favor informar uma opção válida\n")
       print("MENU DE PERGUNTAS E RESPOSTAS\n")
       print("Selecione a opção desejada:\n")
       print("0 - Sair do Jogo.\n")
       print("1 - Gerar Rodada de Perguntas.\n")
-      print("2 - Ver Pontuação Total.\n")
-      print("3 - Ver Maior Pontuação em uma rodada até o momento .\n")
+      print("2 - Ver Maior Pontuação Atingida nas Rodadas.\n")
+      print("3 - Ver Lista de Pontuação de cada Rodada.\n")
+      print("4 - Ver Pontuação Total de todas as Rodadas.\n")
       menu = int(input("Informe um opção: "))
   os.system("clear") or None #esse comando limpa a tela do console
 
@@ -56,6 +57,7 @@ while menu != 0:
       pergunta = (random.choice(quests))
       perguntaLista.append(pergunta)
     pontos = 0
+    qntrespostacerta = 0
     for x in range (5):
       print("\nQuestão:",perguntaLista[x][0])#pergunta
       print("\nAlterantiva 1:",perguntaLista[x][1])#resposta 1
@@ -95,13 +97,21 @@ while menu != 0:
     print ("Jogador, você fez",pontos, "pontos! O total de acertos é =",qntrespostacerta)  
     if (pontos > maiorpontorodada):
       maiorpontorodada = pontos
-  
-  elif menu == 2: #Geração de pontuação total
-    print ("Sua pontuação total foi:", pontosTotais,"pontos\n")
+
+  elif menu == 2: #Geração de maior pontuação em uma rodada
+    print ("Sua maior pontuação em uma rodada: ",maiorpontorodada," pontos\n")
     time.sleep(2) #função de espera
     os.system("clear") or None #esse comando limpa a tela do console
-    
-  elif menu == 3: #Geração de maior pontuação
-    print ("Sua maior pontuação em uma rodada:" , maiorpontorodada,"pontos\n")
+
+  elif menu == 3: #Registro de pontos de todas as rodadas
+    i = 0
+    for x in listapontorodada:
+      i += 1
+      print ("Sua pontuação na rodada ",i,": ",x," pontos\n")
+    time.sleep(3) #função de espera
+    os.system("clear") or None #esse comando limpa a tela do console
+
+  elif menu == 4: #Geração de pontuação total
+    print ("Sua pontuação total foi:", pontosTotais,"pontos\n")
     time.sleep(2) #função de espera
     os.system("clear") or None #esse comando limpa a tela do console
