@@ -80,11 +80,11 @@ while menu != 0:
       maiorpontorodada = pontos
   
   elif menu == 2: #Geração de pontuação total
-    print ("Sua pontuação total foi:", pontosTotais,"\n")
+    print ("Sua pontuação total foi:", pontosTotais,"pontos\n")
     time.sleep(2) #função de espera
     os.system("clear") or None #esse comando limpa a tela do console
     
   elif menu == 3: #Geração de maior pontuação
-    print ("Sua maior pontuação em uma rodada:" , maiorpontorodada,"\n")
+    print ("Sua maior pontuação em uma rodada:" , maiorpontorodada,"pontos\n")
     time.sleep(2) #função de espera
     os.system("clear") or None #esse comando limpa a tela do console
