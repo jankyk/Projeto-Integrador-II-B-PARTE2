@@ -34,12 +34,11 @@ while menu != 0:
 
   if menu == 1: #GERAÇÃO DE RODADA DE PERGUNTAS
     perguntaLista = []
-    for i in range (3):
+    for i in range (5):
       pergunta = (random.choice(quests))
       perguntaLista.append(pergunta)
     pontos = 0
-    for x in range (3):
-      
+    for x in range (5):
       print("\nQuestão: ",perguntaLista[x][0])#pergunta
       print("\nAlterantiva 1: ",perguntaLista[x][1])#resposta 1
       print("\nAlterantiva 2: ",perguntaLista[x][2])#resposta 2
@@ -76,15 +75,12 @@ while menu != 0:
       os.system('clear') or None #esse comando limpa a tela do console
     print ('Resultado final:')
     listapontorodada.append(pontos)
-    print ('Jogador, você fez', + pontos, 'pontos! O total de acertos é =',qntrespostacerta)
-  
-  if (pontos > maiorpontorodada):
-    maiorpontorodada = pontos
-
+    print ('Jogador, você fez', + pontos, 'pontos! O total de acertos é =',qntrespostacerta)  
+    if (pontos > maiorpontorodada):
+      maiorpontorodada = pontos
   
   elif menu == 2: #Geração de pontuação total
     print ("Sua pontuação Total foi: ", pontosTotais,"\n")
     
   elif menu == 3: #Geração de maior pontuação
    print ("Sua maior pontuação em uma rodada :" , maiorpontorodada,"\n")
-   #print ("Lista da rodada :" , listapontorodada,"\n")
