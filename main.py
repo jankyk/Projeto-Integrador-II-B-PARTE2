@@ -18,6 +18,10 @@ for linha in loader:
 arquiv.close()
 
 menu = 4
+pontosTotais = 0
+maiorpontorodada = 0
+listapontorodada = []
+qntrespostacerta = 0
 while menu != 0:
   print("MENU DE PERGUNTAS E RESPOSTAS\n")
   print("Selecione a opção desejada:\n")
@@ -26,18 +30,16 @@ while menu != 0:
   print("2 - Ver Pontuação Total.\n")
   print("3 - Ver Maior Pontuação em uma rodada até o momento .\n")
   menu = int(input('Informe um opção: '))
-  pontos = 0
-  maiorpontorodada = 0
-  listapontorodada = []
-  qntrespostacerta = 0
+
 
   if menu == 1: #GERAÇÃO DE RODADA DE PERGUNTAS
     perguntaLista = []
-    for i in range (2):
+    for i in range (3):
       pergunta = (random.choice(quests))
       perguntaLista.append(pergunta)
-
-    for x in range (2):
+    pontos = 0
+    for x in range (3):
+      
       print("\nQuestão: ",perguntaLista[x][0])#pergunta
       print("\nAlterantiva 1: ",perguntaLista[x][1])#resposta 1
       print("\nAlterantiva 2: ",perguntaLista[x][2])#resposta 2
@@ -49,6 +51,7 @@ while menu != 0:
       if (rusuario >= 1 and rusuario <= 3):
         if (rusuario == rcerta):
           pontos += 20
+          pontosTotais += 20
           qntrespostacerta += 1
           os.system('clear') or None
           print ('\n' + 'Parabéns '  +', você acertou e está com  pontos')
@@ -72,15 +75,16 @@ while menu != 0:
       time.sleep(1) #função de espera
       os.system('clear') or None #esse comando limpa a tela do console
     print ('Resultado final:')
-    print ('Jogador, você fez', + pontos, 'pontos! O total de acertos é =',qntrespostacerta)
     listapontorodada.append(pontos)
-    if (pontos > maiorpontorodada):
-      maiorpontorodada = pontos
+    print ('Jogador, você fez', + pontos, 'pontos! O total de acertos é =',qntrespostacerta)
+  
+  if (pontos > maiorpontorodada):
+    maiorpontorodada = pontos
 
   
   elif menu == 2: #Geração de pontuação total
-    print ("")
+    print ("Sua pontuação Total foi: ", pontosTotais,"\n")
     
   elif menu == 3: #Geração de maior pontuação
    print ("Sua maior pontuação em uma rodada :" , maiorpontorodada,"\n")
-   print ("Lista da rodada :" , listapontorodada,"\n")
+   #print ("Lista da rodada :" , listapontorodada,"\n")
